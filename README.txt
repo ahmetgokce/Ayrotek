@@ -1,4 +1,5 @@
-docker compose up ile çalıştırabilirsiniz.
+docker compose up ile db'leri çalıştırabilirsiniz.
+modulleri ide'den run ederek çalıştırabilirsiniz.
 
 proje ayağa kalktıktan sonra, ilettiğim postman collection ile gerekli istekleri yapabilirsiniz.
 

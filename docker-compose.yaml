@@ -1,24 +1,5 @@
 version: '3.5'
 services:
-  product-service:
-    depends_on:
-      - mysql
-    links:
-      - mysql
-    build: 
-      context: product-service
-      dockerfile: product-service/Dockerfile
-    container_name: product-service
-    restart: on-failure
-    volumes:
-      - .m2:/root/.m2
-    stdin_open: true
-    tty: true
-    ports:
-      - 8080:8080
-    networks:
-      - shared-net
-
   mysql:
     image: mysql:5.7
     container_name: mysql_container
@@ -43,7 +24,3 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
     - 27017:27017
-
-networks:
-  shared-net:
-    driver: bridge

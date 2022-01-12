@@ -56,7 +56,12 @@ public class ProductService {
 
     public AyrotekResponse updateProduct(Product product) {
         try {
-            return new AyrotekResponse<>(true, productMapper.toDto(productRepository.save(product)));
+            Long id = product.getId();
+            if (productRepository.findById(id).isPresent()){
+                return new AyrotekResponse<>(true, productMapper.toDto(productRepository.save(product)));
+            }else {
+                return new AyrotekResponse<>(false,null);
+            }
         }catch (Exception e) {
             return new AyrotekResponse<>(false, null);
         }
